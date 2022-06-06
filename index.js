@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const mapZoom = 12;
+const mapZoom = 14;
 const searchRadius = 5000;
 let service;
 function getGeoLocation() {
