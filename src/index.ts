@@ -1,4 +1,4 @@
-const mapZoom = 15;
+const mapZoom = 14;
 const searchRadius = 5000;
 
 let service: google.maps.places.PlacesService;
@@ -60,7 +60,7 @@ async function getDetails(
           'formatted_address',
           'formatted_phone_number',
           'photos',
-          'rating',          
+          'rating',
           'geometry',
         ],
       },
@@ -127,6 +127,11 @@ async function initMap(): Promise<void> {
     }
   );
   service = new google.maps.places.PlacesService(map);
+  new google.maps.Marker({
+    map,
+    label: 'You',
+    position: { lat: latitude, lng: longitude },
+  });
 
   const restaurants = await getNearByRestaurants(map);
   const target = randomPick(restaurants);
