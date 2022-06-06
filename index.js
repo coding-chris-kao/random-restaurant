@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const mapZoom = 15;
+const mapZoom = 10;
 const searchRadius = 5000;
 let service;
 function getGeoLocation() {
@@ -107,6 +107,11 @@ function initMap() {
             zoom: mapZoom,
         });
         service = new google.maps.places.PlacesService(map);
+        new google.maps.Marker({
+            map,
+            label: 'You',
+            position: { lat: latitude, lng: longitude },
+        });
         const restaurants = yield getNearByRestaurants(map);
         const target = randomPick(restaurants);
         const details = yield getDetails(target);
